@@ -1,0 +1,9 @@
+{
+  "name": "phoenix-parts-backend",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/justAdevTV/phoenix-parts/tree/master/backend",
+  "author": "Adam Garcia",
+  "license": "MIT",
+  "private": false
+}
