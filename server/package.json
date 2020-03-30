@@ -5,5 +5,22 @@
   "repository": "https://github.com/justAdevTV/phoenix-parts/tree/master/backend",
   "author": "Adam Garcia",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "scripts": {
+    "predebug": "rm -rf dist/*",
+    "debug": "tsc-watch --onSuccess \"node -r module-alias/register --inspect=0.0.0.0:9229 dist/server/src/main.js\" --onFailure \"echo WHOOPS! Server compilation failed\""
+  },
+  "dependencies": {
+    "@types/module-alias": "*",
+    "@types/node": "^13.9.5",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "tsc-watch": "^4.2.3"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "_moduleAliases": {
+    "@shared": "dist/shared/src"
+  }
 }

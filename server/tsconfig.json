@@ -1,0 +1,22 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"outDir": "dist",
+		"baseUrl": "./src",
+		"module": "commonjs",
+		"target": "es2015",
+		"lib": ["es2017"],
+		"sourceMap": true,
+		"strictNullChecks": true,
+		"noImplicitAny": false,
+		"esModuleInterop": true,
+		"preserveConstEnums": true,
+		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"paths": {
+			"@shared/*": [
+				"../../shared/src/*"
+			]
+		}
+	}
+}
