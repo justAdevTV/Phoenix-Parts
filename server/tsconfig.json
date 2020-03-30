@@ -2,7 +2,7 @@
 	"compileOnSave": false,
 	"compilerOptions": {
 		"outDir": "dist",
-		"baseUrl": "./src",
+		"baseUrl": "./",
 		"module": "commonjs",
 		"target": "es2015",
 		"lib": ["es2017"],

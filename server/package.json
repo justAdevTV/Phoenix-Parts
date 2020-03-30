@@ -8,12 +8,16 @@
   "private": false,
   "scripts": {
     "predebug": "rm -rf dist/*",
-    "debug": "tsc-watch --onSuccess \"node -r module-alias/register --inspect=0.0.0.0:9229 dist/server/src/main.js\" --onFailure \"echo WHOOPS! Server compilation failed\""
+    "debug": "tsc-watch --onSuccess \"node -r module-alias/register --inspect=0.0.0.0:9229 dist/main.js\" --onFailure \"echo WHOOPS! Server compilation failed\""
   },
   "dependencies": {
+    "@types/graphql-depth-limit": "*",
     "@types/module-alias": "*",
     "@types/node": "^13.9.5",
+    "apollo-server": "^2.11.0",
+    "apollo-server-express": "^2.11.0",
     "express": "^4.17.1",
+    "graphql-depth-limit": "^1.1.0",
     "module-alias": "^2.2.2",
     "tsc-watch": "^4.2.3"
   },

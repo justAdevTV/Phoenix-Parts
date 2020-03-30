@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
       target: development
     ports:
-      - "8080:8080"
+      - "9001:8080"
     volumes:
       - "./server/src:/workdir/server/src:delegated"
       - "./shared/src:/workdir/shared/src:delegated"
