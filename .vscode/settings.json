@@ -1,23 +1,12 @@
 {
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true,
   "eslint.packageManager": "yarn",
   "eslint.enable": true,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "eslint.workingDirectories": ["./frontend", "./server"],
-  // "workbench.colorCustomizations": {
-  //   "activityBar.background": "#7e5aff",
-  //   "activityBar.activeBackground": "#7e5aff",
-  //   "activityBar.activeBorder": "#ff9b80",
-  //   "activityBar.foreground": "#e7e7e7",
-  //   "activityBar.inactiveForeground": "#e7e7e799",
-  //   "activityBarBadge.background": "#ff9b80",
-  //   "activityBarBadge.foreground": "#15202b",
-  //   "titleBar.activeBackground": "#5627ff",
-  //   "titleBar.inactiveBackground": "#5627ff99",
-  //   "titleBar.activeForeground": "#e7e7e7",
-  //   "titleBar.inactiveForeground": "#e7e7e799",
-  //   "statusBar.background": "#5627ff",
-  //   "statusBarItem.hoverBackground": "#7e5aff",
-  //   "statusBar.foreground": "#e7e7e7"
-  // },
-  // "peacock.color": "#5627ff"
+  // "eslint.format.enable": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
 }
