@@ -25,15 +25,17 @@ services:
     volumes:
       - "./server/src:/workdir/server/src:delegated"
       - "./shared/src:/workdir/shared/src:delegated"
-    # env_file:
-    #   - .env
-    # depends_on:
-    #   - mongo
-  # mongo:
-  #   image: "mongo"
-  #   volumes:
-  #     - ./data-volume:/data/db
-  #   ports:
-  #     - "27017:27017"
-# volumes:
-#   data-volume:
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+  mongo:
+    image: "mongo"
+    volumes:
+      - ./data-volume:/data/db
+    ports:
+      - "27017:27017"
+    logging:
+      driver: none
+volumes:
+  data-volume:
