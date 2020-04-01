@@ -3,8 +3,12 @@ module.exports = {
     browser: true,
     es6: true
   },
-  // extends: ["airbnb-typescript/base"],
-  extends: ['airbnb/base', 'plugin:@typescript-eslint/recommended'],
+  extends: [
+    "airbnb",
+    // "plugin:import/errors",
+    // "plugin:import/warnings",
+    // "plugin:import/typescript"
+  ],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly"
@@ -16,24 +20,24 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   settings: {
+    'import/extensions': [".js",".jsx",".ts",".tsx"],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
-    "import/resolver": {
-      // use <root>/tsconfig.json
-      "typescript": {
-        "alwaysTryTypes": true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+      '@typescript-eslint/parser': [".ts",".tsx"]
       },
-
-      // use <root>/path/to/folder/tsconfig.json
-      "typescript": {
-        "directory": "./tsconfig.json"
-      },
-    }
+      'import/resolver': {
+          'node': {
+              'extensions': [".js",".jsx",".ts",".tsx"]
+          }
+      }
   },
   rules: {
     semi: ["error", "never"],
-    'import/no-unresolved': 0,
-    "@typescript-eslint/no-implied-eval": 0
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+      mjs: 'never',
+      jsx: 'never',
+      ts: 'never',
+      tsx: 'never',
+    }],
   }
 }
