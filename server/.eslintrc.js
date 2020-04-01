@@ -8,6 +8,7 @@ module.exports = {
     // "plugin:import/errors",
     // "plugin:import/warnings",
     // "plugin:import/typescript"
+    "plugin:@typescript-eslint/recommended"
   ],
   globals: {
     Atomics: "readonly",
