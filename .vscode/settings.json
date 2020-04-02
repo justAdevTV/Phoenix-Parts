@@ -8,5 +8,5 @@
   },
   "eslint.workingDirectories": ["./frontend", "./server"],
   // "eslint.format.enable": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint"
 }

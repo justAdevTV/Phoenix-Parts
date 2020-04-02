@@ -1,7 +1,7 @@
-import { ThemeProvider } from "styled-components";
-import Head from "next/head";
-import PropTypes from "prop-types";
-import GlobalStyle from "./_settings/_base";
+import { ThemeProvider } from 'styled-components';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import GlobalStyle from './_settings/_base';
 
 /**
  * AppProvider
@@ -10,7 +10,7 @@ import GlobalStyle from "./_settings/_base";
  *  theme // obj for colors, shadows and misc
  *  DOMtitle // Title for Website
  * }
- * **/
+ * * */
 function AppProvider({ children, theme, DOMtitle }) {
   // Header data
   function Meta() {
@@ -21,8 +21,14 @@ function AppProvider({ children, theme, DOMtitle }) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
         <meta charSet="utf-8" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
         <title>{DOMtitle}</title>
       </Head>
     );
@@ -41,7 +47,7 @@ function AppProvider({ children, theme, DOMtitle }) {
 
 // TODO: Remove this maybe when typescript is added
 AppProvider.defaultProps = {
-  DOMtitle: "Phoenix Parts"
+  DOMtitle: 'Phoenix Parts',
 };
 
 AppProvider.propTypes = {
@@ -52,11 +58,21 @@ AppProvider.propTypes = {
   /**
    * Object for colors and shadows
    */
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.shape({
+    primaryDark: PropTypes.string,
+    primaryLight: PropTypes.string,
+    primary: PropTypes.string,
+    secondary: PropTypes.string,
+    secondaryDark: PropTypes.string,
+    secondaryLight: PropTypes.string,
+    tertiaryDark: PropTypes.string,
+    tertiaryLight: PropTypes.string,
+    green: PropTypes.string,
+  }).isRequired,
   /**
    * Content for everything in the app
    */
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default AppProvider;

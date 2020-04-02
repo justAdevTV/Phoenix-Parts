@@ -1,5 +1,5 @@
-import { primaryTheme } from "../components/_settings/_themes";
-import AppProvider from "../components/AppProvider";
+import { primaryTheme } from '../components/_settings/_themes';
+import AppProvider from '../components/AppProvider';
 
 // Component and pageProps come from Nextjs
 function App({ Component, pageProps }) {

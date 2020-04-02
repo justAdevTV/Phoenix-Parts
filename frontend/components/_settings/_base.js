@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 // Normailizes CSS for DOM
 const GlobalStyle = createGlobalStyle`
@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    color: ${props => props.theme.black};
+    color: ${(props) => props.theme.black};
     box-sizing: border-box;
   }
 

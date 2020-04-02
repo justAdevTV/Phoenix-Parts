@@ -7,7 +7,7 @@ const partSchema = new mongoose.Schema({
   number: {
     type: String,
   },
-})
+});
 
 const Part = mongoose.model('Part', partSchema)
 
