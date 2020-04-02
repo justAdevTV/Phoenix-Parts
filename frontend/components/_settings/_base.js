@@ -11,10 +11,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   
+  html {
+    font-size: 62.5%;
+  }
+
   body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 62.5%; // 1 rem = 10px; 10px/16px = 62.5%
     line-height: 1.7;
     color: ${props => props.theme.black};
     box-sizing: border-box;
