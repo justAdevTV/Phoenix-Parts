@@ -1,16 +1,16 @@
 version: "3.7"
 services:
-  # frontend:
-  #   container_name: frontend
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #     target: development
-  #   command: yarn run dev
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - "./frontend/src:/workdir/frontend/src:delegated"
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      # target: development
+    command: yarn dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/workdir/frontend:delegated"
   #     - "./shared/src:/workdir/shared/src:delegated"
   #   env_file:
   #     - .env
