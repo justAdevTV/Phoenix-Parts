@@ -1,6 +1,9 @@
 import { gql } from 'apollo-server'
 
 const typeDefs = gql`
+	extend type Query {
+		getParts: [Part]!
+	}
   # type Mutation {
   #   addPart(title: String!) : String
   # }
@@ -11,6 +14,7 @@ const typeDefs = gql`
   #   manager: String
   #   machinists: [String]
   # }
+
 
   enum PartStatus {
     inProgress,

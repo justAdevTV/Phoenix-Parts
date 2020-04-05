@@ -1,13 +1,12 @@
-import { makeExecutableSchema } from 'graphql-tools'
-import { GraphQLSchema } from 'graphql'
+import { makeExecutableSchema, IResolvers } from 'graphql-tools'
+import { GraphQLSchema, GraphQLResolveInfo } from 'graphql'
 import { gql } from 'apollo-server'
-import resolvers from './resolvers'
-import { partSchema } from './part'
+import { partSchema, partResolvers } from './part'
+import { merge } from 'lodash'
 
 const typeDefs = gql`
   type Query {
     helloWorld: String!
-    parts: [Part]!
   }
 
   type Mutation {
@@ -22,9 +21,28 @@ const typeDefs = gql`
   }
 `
 
+const resolvers: IResolvers = {
+  Query: {
+    helloWorld(
+      _: void,
+      args: void,
+      ctx: void,
+      info: GraphQLResolveInfo,
+    ): string {
+      return '👋 Hello world! 👋'
+    }
+  },
+  // Mutation: {
+	// 	// TODO: Figure out how to clean this up
+  //   addPart: (_: null, args: addPartMutationInput, ctx: void, info: GraphQLResolveInfo) => {
+  //     return 'new part'
+  //   },
+  // },
+}
+
 const schema: GraphQLSchema = makeExecutableSchema({
   typeDefs: [typeDefs, partSchema],
-  resolvers,
+  resolvers: merge(resolvers, partResolvers),
 })
 
 export { schema }
