@@ -5,7 +5,7 @@ import depthLimit from 'graphql-depth-limit'
 import cors from 'cors'
 import { mongoConnect } from './connectivity'
 import { partRouter } from './routers'
-import schema from './schema'
+import { schema } from './graphql'
 
 /**
  * Initialize connection to mongodb early

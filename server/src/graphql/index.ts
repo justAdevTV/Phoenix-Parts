@@ -1,12 +1,17 @@
 import { makeExecutableSchema } from 'graphql-tools'
 import { GraphQLSchema } from 'graphql'
 import { gql } from 'apollo-server'
-import resolvers from '../resolvers'
+import resolvers from './resolvers'
+import { partSchema } from './part'
 
 const typeDefs = gql`
   type Query {
     helloWorld: String!
     parts: [Part]!
+  }
+
+  type Mutation {
+    addPart(title: String!) : String
   }
 
   # TODO: Replace with user type
@@ -15,31 +20,12 @@ const typeDefs = gql`
     manager: String
     machinists: [String]
   }
-
-  enum PartStatus {
-    inProgress,
-    notStarted,
-    done
-  }
-
-  enum PartPriority {
-    high
-    medium
-    low
-  }
-
-  type Part {
-    name: String!
-    number: String!
-    users: PartUsers
-    status: PartStatus
-    priority: PartPriority
-  }
 `
 
 const schema: GraphQLSchema = makeExecutableSchema({
-  typeDefs,
+  typeDefs: [typeDefs, partSchema],
   resolvers,
 })
 
-export default schema
+export { schema }
+

@@ -1,5 +1,4 @@
 import { GraphQLResolveInfo } from 'graphql'
-// import { Context } from "../models"
 import { IResolvers } from 'graphql-tools'
 import Part from '../models/Part.model'
 
@@ -15,6 +14,10 @@ type Part = {
   priority: 'high' | 'medium' | 'low';
 }
 
+type addPartMutationInput = {
+  title: string;
+}
+
 const resolvers: IResolvers = {
   Query: {
     helloWorld(
@@ -27,6 +30,12 @@ const resolvers: IResolvers = {
     },
     async parts() {
       return Part.find()
+    },
+  },
+  Mutation: {
+		// TODO: Figure out how to clean this up
+    addPart: (_: null, args: addPartMutationInput, ctx: void, info: GraphQLResolveInfo) => {
+      return 'new part'
     },
   },
 }
