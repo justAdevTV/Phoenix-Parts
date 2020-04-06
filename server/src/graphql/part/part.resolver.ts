@@ -1,34 +1,30 @@
-import { IResolvers } from 'graphql-tools';
-import { GraphQLResolveInfo } from 'graphql';
-import Part from '../../models/Part.model' 
-
-// type Part = {
-//   name: string;
-//   number: string;
-//   users: {
-//     designer?: string;
-//     manager?: string;
-//     machinists?: [string];
-//   };
-//   status: 'inProgress' | 'notStarted' | 'done';
-//   priority: 'high' | 'medium' | 'low';
-// }
-
-type addPartMutationInput = {
-  title: string;
-}
+import { IResolvers } from 'graphql-tools'
+import { GraphQLResolveInfo } from 'graphql'
+import { PartModel, PartType } from '../../models/Part.model'
 
 const partResolver: IResolvers = {
-	Query: {
-    getParts: async () => {
-      return Part.find()
+  Query: {
+    getParts: async (): Promise<any> => PartModel.find(),
+    getPartsFromSubAssy: async (
+      _: void,
+      args: { parent: string },
+      ctx: void,
+      info: GraphQLResolveInfo,
+    ): Promise<PartType | any[]> => {
+      const parts = await PartModel.find({
+        parent: args.parent,
+      })
+
+      return parts
     },
   },
   Mutation: {
-		// TODO: Figure out how to clean this up
-    addPart: (_: null, args: addPartMutationInput, ctx: void, info: GraphQLResolveInfo) => {
-      return 'new part'
-    },
+    addPart: (
+      _: null,
+      args: { title: string },
+      ctx: void,
+      info: GraphQLResolveInfo,
+    ): string => 'new part',
   },
 }
 

@@ -4,7 +4,7 @@ module.exports = {
     es6: true
   },
   extends: [
-    "airbnb",
+    "airbnb/base",
     // "plugin:import/errors",
     // "plugin:import/warnings",
     // "plugin:import/typescript"
@@ -40,5 +40,12 @@ module.exports = {
       ts: 'never',
       tsx: 'never',
     }],
+    '@typescript-eslint/no-explicit-any': 0,
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "vars": "all",
+      "args": "none",
+      "ignoreRestSiblings": false
+    }],
+    'import/prefer-default-export': 0,
   }
 }

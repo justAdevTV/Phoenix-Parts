@@ -1,20 +1,10 @@
 import { gql } from 'apollo-server'
 
 const typeDefs = gql`
-	extend type Query {
-		getParts: [Part]!
-	}
-  # type Mutation {
-  #   addPart(title: String!) : String
-  # }
-
-  # TODO: Replace with user type
-  # type PartUsers {
-  #   designer: String
-  #   manager: String
-  #   machinists: [String]
-  # }
-
+  extend type Query {
+    getParts: [Part]!
+    getPartsFromSubAssy(parent: String!): [Part]
+  }
 
   enum PartStatus {
     inProgress,
@@ -32,8 +22,8 @@ const typeDefs = gql`
     name: String!
     number: String!
     # users: PartUsers
-    status: PartStatus
-    priority: PartPriority
+    # status: PartStatus
+    # priority: PartPriority
   }
 `
 
