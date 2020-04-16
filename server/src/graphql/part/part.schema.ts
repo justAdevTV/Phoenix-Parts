@@ -3,7 +3,7 @@ import { gql } from 'apollo-server'
 const typeDefs = gql`
   extend type Query {
     getParts: [Part]!
-    getPartsFromSubAssy(parent: String!): [Part]
+    getPart(id: String): Part
   }
 
   type AddPartMutationPayload {

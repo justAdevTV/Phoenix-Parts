@@ -23,17 +23,14 @@ const partResolver: IResolvers = {
 
       return parts
     },
-    getPartsFromSubAssy: async (
-      _: void,
-      args: { parent: string },
-      ctx: void,
-      info: GraphQLResolveInfo,
-    ): Promise<PartType[]> => {
-      const parts = await PartModel.find({
-        parent: args.parent,
-      })
+    getPart: async (parent, args: { id: string}, context): Promise<any> => {
+      if (!args.id) {
+        throw new Error('No Id found.')
+      }
 
-      return parts
+      const part = await PartModel.findById(args.id)
+
+      return part
     },
   },
   Mutation: {
