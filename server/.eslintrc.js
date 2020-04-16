@@ -47,5 +47,6 @@ module.exports = {
       "ignoreRestSiblings": false
     }],
     'import/prefer-default-export': 0,
+    'no-underscore-dangle': 0,
   }
 }

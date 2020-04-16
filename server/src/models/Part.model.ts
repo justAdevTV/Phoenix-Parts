@@ -1,14 +1,31 @@
-import mongoose, { Document } from 'mongoose'
+import mongoose, { Schema, Document } from 'mongoose'
 
-const partSchema = new mongoose.Schema({
+const partSchema: Schema = new mongoose.Schema({
+  // This is the part number.  Unique and how we uniquely
+  // identify a part.  This is best so that I can easily
+  // add parts as refs
+
+  _id: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,
   },
-  number: {
+  // number: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  // },
+  quantity: {
+    type: Number,
+    default: 1,
+  },
+  material: {
     type: String,
-    required: true,
-    unique: true,
+  },
+  status: {
+    type: String,
   },
   parent: {
     type: String,
@@ -18,14 +35,18 @@ const partSchema = new mongoose.Schema({
   },
 })
 
-export interface PartType extends Document {
+export interface PartType {
+  _id: string;
   name: string;
   number: string;
-  parent: string | null;
+  quantity: number;
+  parent?: string | null;
   children?: string[];
 }
 
-const PartModel = mongoose.model('Part', partSchema)
+export type PartMongooseType = PartType & Document
+
+const PartModel = mongoose.model<PartMongooseType>('Part', partSchema)
 
 export { PartModel }
 
