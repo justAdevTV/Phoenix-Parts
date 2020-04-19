@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   html {
-    font-size: 62.5%;
+    font-size: 62.5%; 
   }
 
   body {
@@ -21,6 +21,11 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.7;
     color: ${(props) => props.theme.black};
     box-sizing: border-box;
+    height: 100vh;
+
+    & > div {
+      height: 100%;
+    }
   }
 
   // For storybook docs
