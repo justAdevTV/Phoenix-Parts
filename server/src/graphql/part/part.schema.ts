@@ -6,12 +6,13 @@ const typeDefs = gql`
     getPart(id: String): Part
   }
 
-  type AddPartMutationPayload {
-    part: Part
-  }
   extend type Mutation {
     addPart(PartInput: PartInput): AddPartMutationPayload
     resetParts: String
+  }
+  
+  type AddPartMutationPayload {
+    part: Part
   }
 
   input PartInput {

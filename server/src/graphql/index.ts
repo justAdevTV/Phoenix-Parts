@@ -3,6 +3,7 @@ import { GraphQLSchema, GraphQLResolveInfo } from 'graphql'
 import { gql } from 'apollo-server'
 import { merge } from 'lodash'
 import { partSchema, partResolvers } from './part'
+import { materialSchema, materialResolvers } from './material'
 
 const typeDefs = gql`
   type Query {
@@ -41,8 +42,8 @@ const resolvers: IResolvers = {
 }
 
 const schema: GraphQLSchema = makeExecutableSchema({
-  typeDefs: [typeDefs, partSchema],
-  resolvers: merge(resolvers, partResolvers),
+  typeDefs: [typeDefs, partSchema, materialSchema],
+  resolvers: merge(resolvers, partResolvers, materialResolvers),
 })
 
 export { schema }
